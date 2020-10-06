@@ -2,7 +2,7 @@
 const fs = require("fs");
 var _METADATA = null;
 try {
-    _METADATA = JSON.parse(fs.readFileSync("./config.json"))
+    _METADATA = JSON.parse(fs.readFileSync("src/config.json"))
     console.log("MetaData", _METADATA)
 } catch (e) {
     console.error(e)
