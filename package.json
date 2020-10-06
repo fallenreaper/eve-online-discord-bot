@@ -1,0 +1,24 @@
+{
+  "name": "eve-online-discord-bot",
+  "version": "1.0.0",
+  "description": "A simple bot for querying the static eve online database",
+  "main": "./src/bot.js",
+  "dependencies": {
+    "discord.js": "^12.3.1",
+    "pg": "^8.4.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fallenreaper/eve-online-discord-bot.git"
+  },
+  "author": "Fallenreaper",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fallenreaper/eve-online-discord-bot/issues"
+  },
+  "homepage": "https://github.com/fallenreaper/eve-online-discord-bot#readme"
+}
