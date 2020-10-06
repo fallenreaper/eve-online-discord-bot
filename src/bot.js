@@ -1,17 +1,9 @@
 
 console.log("Turning on Application")
-const fs = require("fs");
 const { Client } = require('discord.js');
+const _METADATA = require("./config.js").get()
 const Indy = require("./indy.js")
 const PG = require("./postgres.js")
-
-var _METADATA = null;
-try {
-    _METADATA = JSON.parse(fs.readFileSync("./config.json"))
-    console.log("MetaData", _METADATA)
-} catch (e) {
-    console.error(e)
-}
 
 const client = new Client({
     partials: ['MESSAGE', 'REACTION']

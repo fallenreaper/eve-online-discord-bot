@@ -1,10 +1,11 @@
 const { Pool } = require('pg')
+const _METADATA = require("./config").get()
 const pool = new Pool({
-  user: 'postgres',
-  host: '0.0.0.0',
-  database: 'evesde',
-  password: 'password',
-  port: 5432,
+  user: _METADATA.POSTGRES_USER || "postgres",
+  host: _METADATA.POSTGRES_HOST || "localhost",
+  database: _METADATA.POSTGRES_DB || "postgres",
+  password: _METADATA.POSTGRES_PASSWORD || 'password',
+  port: _METADATA.POSTGRES_PORT || 5432,
 })
 
 exports.query = (statement, success, error) => {
