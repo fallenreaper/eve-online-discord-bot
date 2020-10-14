@@ -1,0 +1,26 @@
+version: "3.8"
+services:
+  eve-postgres-test:
+    image: fallenreaper/eve-postgres
+    hostname: eve-postgres-test
+    ports:
+      - 5432:5432
+    networks:
+      - aboranet
+  client:
+    build: .
+    deploy:
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+    environment:
+      - POSTGRES_HOST=eve-postgres-test
+    depends_on:
+      - eve-postgres-test
+    networks:
+      - aboranet
+networks:
+  aboranet:
+    external:
+      name: aboranet
