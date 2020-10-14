@@ -4,7 +4,7 @@ services:
     image: fallenreaper/eve-postgres
     hostname: eve-postgres-test
     ports:
-      - 5432:5432
+      - 8888:5432
     networks:
       - aboranet
   client:
@@ -16,6 +16,7 @@ services:
         max_attempts: 3
     environment:
       - POSTGRES_HOST=eve-postgres-test
+      - POSTGRES_PORT=5432
     depends_on:
       - eve-postgres-test
     networks:
