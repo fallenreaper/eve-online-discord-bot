@@ -1,8 +1,8 @@
-version: "3.8"
+version: "3.7"
 services:
-  eve-postgres-test:
-    image: fallenreaper/eve-postgres
-    hostname: eve-postgres-test
+  eve-postgres:
+    image: fallenreaper/eve-postgres:latest
+    hostname: eve-postgres
     ports:
       - 8888:5432
     networks:
@@ -15,10 +15,11 @@ services:
         delay: 5s
         max_attempts: 3
     environment:
-      - POSTGRES_HOST=eve-postgres-test
+      - POSTGRES_HOST=eve-postgres
       - POSTGRES_PORT=5432
     depends_on:
-      - eve-postgres-test
+      - eve-postgres
+    command: ['./waitforcontainer.sh', 'eve-postgres', 'npm', 'start']
     networks:
       - aboranet
 networks:
